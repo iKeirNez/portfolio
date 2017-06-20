@@ -136,6 +136,25 @@
                     </div>
                 </div>
             </section>
+            <section class="experience section">
+                <div class="section-inner">
+                    <h2 class="heading">Education</h2>
+                    <div class="content">
+                        <div class="item">
+                            <h3 class="title">Software Development (HND)
+                                <span class="place">Fife College - Priory/St. Brycedale Campus</span>
+                                <span class="year">(August 2015 - June 2017)</span>
+                            </h3>
+                            <p>
+                                Covered many aspects of software design, troubleshooting and implementation as well as
+                                project planning. During this time I experimented with many languages and technologies
+                                including C++, MySQL, PHP, JavaScript, Java and JSP amongst others. I completed the
+                                course with a grade A.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         <div class="secondary col-md-4 col-sm-12 col-xs-12">
             <aside class="info aside section">
