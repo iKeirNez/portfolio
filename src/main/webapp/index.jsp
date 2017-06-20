@@ -1,28 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="now" class="java.util.Date" />
 <%--@elvariable id="profile" type="com.keirnellyer.portfolio.Profile"--%>
-<%--<?php--%>
-    <%--$timezone = new DateTimeZone('Europe/London');--%>
-    <%--$dob = DateTime::createFromFormat('d/m/Y', '12/01/1999', $timezone);--%>
-
-    <%--function getAgeString() {--%>
-        <%--$years = getAge()->y;--%>
-        <%--return getAgePrefix($years) . ' ' . $years;--%>
-    <%--}--%>
-
-    <%--function getAgePrefix($age) {--%>
-        <%--// if age sounds like it starts with 'eight' - return 'an'--%>
-        <%--if ($age == 8 || $age == 18 || ($age >= 80 && $age < 90)) {--%>
-            <%--return 'an';--%>
-        <%--} else {--%>
-            <%--return 'a';--%>
-        <%--}--%>
-    <%--}--%>
-
-    <%--function getAge() {--%>
-        <%--global $timezone, $dob;--%>
-        <%--return $dob->diff(new DateTime('now', $timezone));--%>
-    <%--}--%>
-<%--?>--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -172,7 +152,7 @@
 <footer class="footer">
     <div class="container text-center">
         <div class="footer-content">
-            Copyright &copy; <?= date("Y") ?> Keir Nellyer
+            Copyright &copy; <fmt:formatDate value="${now}" pattern="Y" /> Keir Nellyer
         </div>
     </div>
 </footer>
