@@ -25,6 +25,15 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.5.v20170502</version>
+                <configuration>
+                    <!-- Without this, static files are never updated -->
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
