@@ -1,4 +1,3 @@
-[#ftl]
 <header class="header">
     <div class="container">
         <img class="profile-image img-circle img-responsive pull-left" src="/profile.png" alt="Keir Nellyer" />
