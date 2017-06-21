@@ -1,43 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="now" class="java.util.Date" />
-<%--@elvariable id="profile" type="com.keirnellyer.portfolio.Profile"--%>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Keir Nellyer | Software Engineer</title>
-
-    <!-- Setup Responsive Environment -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link id="theme-style" rel="stylesheet" href="resources/css/main.css">
-</head>
-<body>
-<header class="header">
-    <div class="container">
-        <img class="profile-image img-circle img-responsive pull-left" src="profile.png" alt="Keir Nellyer" />
-        <div class="profile-content pull-left">
-            <h1 class="full-name">Keir Nellyer</h1>
-            <h2 class="job-title">Software Engineer</h2>
-            <ul class="social list-inline">
-                <li><a href="https://github.com/iKeirNez" target="_blank"><i class="fa fa-github-alt"></i></a></li>
-                <li><a href="https://uk.linkedin.com/in/ikeirnez" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="https://twitter.com/iKeirNez" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <!-- TODO add more social buttons here -->
-            </ul>
-        </div>
-        <a class="btn btn-cta-primary pull-right email" href="mailto:keir@bad-domain.co.uk" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
-    </div>
-</header>
-
+<#import "layout/utils.ftl" as utils>
+<@utils.standardLayout "Keir Nellyer | Software Engineer">
 <div class="container sections-wrapper">
     <div class="row">
         <div class="primary col-md-8 col-sm-12 col-xs-12">
@@ -148,22 +110,4 @@
         </div>
     </div>
 </div>
-
-<footer class="footer">
-    <div class="container text-center">
-        <div class="footer-content">
-            Copyright &copy; <fmt:formatDate value="${now}" pattern="Y" /> Keir Nellyer
-        </div>
-    </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"
-        integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<script src="resources/js/age.js"></script>
-<script src="resources/js/main.js"></script>
-
-</body>
-</html>
+</@utils.standardLayout>

@@ -1,16 +1,16 @@
 package com.keirnellyer.portfolio;
 
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 public class Profile {
     private String firstName;
     private String lastName;
-    private LocalDate birthDate;
+    private ZonedDateTime birthDate;
     private String location;
     private String email;
 
-	public Profile(String firstName, String lastName, LocalDate birthDate, String location, String email) {
+	public Profile(String firstName, String lastName, ZonedDateTime birthDate, String location, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthDate = birthDate;
@@ -34,11 +34,11 @@ public class Profile {
 		this.lastName = lastName;
 	}
 
-	public LocalDate getBirthDate() {
+	public ZonedDateTime getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(ZonedDateTime birthDate) {
 		this.birthDate = birthDate;
 	}
 
