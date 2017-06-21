@@ -1,7 +1,6 @@
 package com.keirnellyer.portfolio
 
 import freemarker.template.Configuration
-import freemarker.template.Version
 import spark.ModelAndView
 import spark.kotlin.get
 import spark.kotlin.staticFiles
@@ -17,7 +16,7 @@ fun main(args : Array<String>) {
 }
 
 fun createFreemarkerConfig(): Configuration {
-    val configuration: Configuration = Configuration(Version(2, 3, 26))
+    val configuration: Configuration = Configuration(Configuration.VERSION_2_3_26)
     configuration.setClassForTemplateLoading({}::class.java, "/templates")
     return configuration
 }
