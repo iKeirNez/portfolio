@@ -26,6 +26,6 @@ class Application(val templateEngine: TemplateEngine) {
 
     fun createProfile(): Profile {
         val birthDateTime = LocalDate.of(1999, 1, 12).atStartOfDay(ZoneId.of("Europe/London"))
-        return Profile("Keir", "Nellyer", birthDateTime, "Dunfermline, Scotland", "keir@nellyer.co.uk")
+        return Profile("Keir", "Nellyer", birthDateTime, "Software Engineer", "Dunfermline, Scotland", "keir@nellyer.co.uk")
     }
 }
