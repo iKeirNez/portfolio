@@ -1,5 +1,5 @@
 <#import "layout/utils.ftl" as utils>
-<@utils.standardLayout "Keir Nellyer | Software Engineer">
+<@utils.standardLayout "${profile.fullName} | Software Engineer">
 <div class="container sections-wrapper">
     <div class="row">
         <div class="primary col-md-8 col-sm-12 col-xs-12">
@@ -8,7 +8,7 @@
                     <h2 class="heading">About Me</h2>
                     <div class="content">
                         I'm <span data-age-prefix="true" data-years-since="1999-01-12 00:00+01:00"></span>-year-old
-                        developer based in Dunfermline, Scotland, I specialise in developing back-end software
+                        developer based in ${profile.location}, I specialise in developing back-end software
                         solutions, the majority of these have been solved using Java, PHP &amp; MySQL. I always enjoy
                         expanding my knowledge and skillset by learning new technologies, I can then use this new
                         knowledge to tackle more complex challenges. I've always had a very deep interest in
