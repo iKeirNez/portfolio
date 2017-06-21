@@ -27,7 +27,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script src="/resources/js/age.js"></script>
-    <script src="/resources/js/main.js"></script>
+    <script src="/resources/js/obfuscate.js"></script>
 </body>
 </html>
 </#macro>

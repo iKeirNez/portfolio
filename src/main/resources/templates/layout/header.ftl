@@ -12,6 +12,9 @@
                 <!-- TODO add more social buttons here -->
             </ul>
         </div>
-        <a class="btn btn-cta-primary pull-right email" href="mailto:keir@bad-domain.co.uk" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+        <#-- TODO: Dynamically obfuscate email and inject -->
+        <a class="btn btn-cta-primary pull-right" target="_blank" data-obfuscate="a2VpckBuZWxseWVyLmNvLnVr">
+            <i class="fa fa-paper-plane"></i> Contact Me
+        </a>
     </div>
 </header>

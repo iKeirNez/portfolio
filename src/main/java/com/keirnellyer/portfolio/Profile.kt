@@ -1,7 +1,6 @@
 package com.keirnellyer.portfolio
 
 import java.time.ZonedDateTime
-import java.util.Objects
 
 class Profile(var firstName: String, var lastName: String, var birthDate: ZonedDateTime, var location: String, var email: String) {
 
