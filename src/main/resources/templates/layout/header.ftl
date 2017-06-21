@@ -8,7 +8,7 @@
                 <li><a href="https://github.com/iKeirNez" target="_blank"><i class="fa fa-github-alt"></i></a></li>
                 <li><a href="https://uk.linkedin.com/in/ikeirnez" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                 <li><a href="https://twitter.com/iKeirNez" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <!-- TODO add more social buttons here -->
+                <#-- TODO: add more social buttons here -->
             </ul>
         </div>
         <#-- TODO: Dynamically obfuscate email and inject -->
