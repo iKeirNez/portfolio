@@ -1,5 +1,5 @@
 <#import "layout/utils.ftl" as utils>
-<@utils.standardLayout "${profile.fullName} | Software Engineer">
+<@utils.standardLayout "${profile.fullName} | ${profile.jobTitle}">
 <div class="container sections-wrapper">
     <div class="row">
         <div class="primary col-md-8 col-sm-12 col-xs-12">
