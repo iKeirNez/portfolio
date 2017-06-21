@@ -7,7 +7,7 @@
                 <div class="section-inner">
                     <h2 class="heading">About Me</h2>
                     <div class="content">
-                        I'm <span data-age-prefix="true" data-years-since="1999-01-12 00:00+01:00"></span>-year-old
+                        I'm <span data-age-prefix="true" data-years-since="${profile.birthDate.format('yyyy-MM-dd HH:mmZ', 'UTC')}"></span>-year-old
                         developer based in ${profile.location}, I specialise in developing back-end software
                         solutions, the majority of these have been solved using Java, PHP &amp; MySQL. I always enjoy
                         expanding my knowledge and skillset by learning new technologies, I can then use this new

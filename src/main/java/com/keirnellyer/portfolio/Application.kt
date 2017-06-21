@@ -25,8 +25,7 @@ class Application(val templateEngine: TemplateEngine) {
     }
 
     fun createProfile(): Profile {
-        val birthDate = LocalDate.of(1999, 1, 12)
-        val zonedBirthDate = birthDate.atStartOfDay(ZoneId.of("Europe/London"))
-        return Profile("Keir", "Nellyer", zonedBirthDate, "Dunfermline, Scotland", "keir@nellyer.co.uk")
+        val birthDateTime = LocalDate.of(1999, 1, 12).atStartOfDay(ZoneId.of("Europe/London"))
+        return Profile("Keir", "Nellyer", birthDateTime, "Dunfermline, Scotland", "keir@nellyer.co.uk")
     }
 }
