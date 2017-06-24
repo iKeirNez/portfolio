@@ -6,7 +6,7 @@ import spark.TemplateEngine
 import spark.template.freemarker.FreeMarkerEngine
 
 fun main(args : Array<String>) {
-    Application(createTemplateEngine())
+    WebApplication(createTemplateEngine())
 }
 
 fun createTemplateEngine(): TemplateEngine {

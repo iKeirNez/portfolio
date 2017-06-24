@@ -11,7 +11,7 @@
                 <#-- TODO: add more social buttons here -->
             </ul>
         </div>
-        <a class="btn btn-cta-primary pull-right" target="_blank" data-obfuscated-email="${xorString(profile.email)}">
+        <a class="btn btn-cta-primary pull-right" target="_blank" data-obfuscated-email="${profile.obfuscatedEmail}">
             <i class="fa fa-paper-plane"></i> Contact Me
         </a>
     </div>

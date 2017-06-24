@@ -1,10 +1,9 @@
 package com.keirnellyer.portfolio.repository
 
-import com.keirnellyer.portfolio.Profile
+import com.keirnellyer.portfolio.model.Profile
 
 import java.time.LocalDate
 import java.time.ZoneId
-import java.time.ZonedDateTime
 
 class DummyProfileRepository : ProfileRepository {
     override val profile: Profile
