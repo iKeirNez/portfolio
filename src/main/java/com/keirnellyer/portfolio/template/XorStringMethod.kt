@@ -4,9 +4,9 @@ import freemarker.template.SimpleScalar
 import freemarker.template.TemplateMethodModelEx
 import freemarker.template.TemplateModelException
 
-private const val MAGIC_NUMBER = 1337
-
 class XorStringMethod : TemplateMethodModelEx {
+    private val MAGIC_NUMBER = 1337
+
     override fun exec(args: List<*>): Any {
         if (args.size != 1) {
             throw TemplateModelException("Invalid arguments")
