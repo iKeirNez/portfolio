@@ -12,6 +12,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class WebApplication(val templateEngine: TemplateEngine) {
+    var appConfig: AppConfig = AppConfig(1337)
     val profileRepository: ProfileRepository = DummyProfileRepository()
 
     init {
@@ -38,18 +39,18 @@ class WebApplication(val templateEngine: TemplateEngine) {
                 obfuscatedEmail)
     }
 
-    private val MAGIC_NUMBER = 1337
-
     fun xorString(s: String): String {
         // encode the string by XOR'ing each char
         // this can be decoded by repeating the operation
         return s.toCharArray()
-                .map { c: Char -> c.toInt() xor MAGIC_NUMBER }
+                .map { c: Char -> c.toInt() xor appConfig.obfuscationKey }
                 .map { i: Int -> i.toChar() }
                 .joinToString(separator = "")
     }
 
-    fun render(model: MutableMap<String, Any>, templatePath: String): String {
-        return templateEngine.render(ModelAndView(model, templatePath))
+    fun render(model: Map<String, Any>, templatePath: String): String {
+        val mutableModel: MutableMap<String, Any> = HashMap(model)
+        mutableModel.put("appConfig", appConfig)
+        return templateEngine.render(ModelAndView(mutableModel, templatePath))
     }
 }

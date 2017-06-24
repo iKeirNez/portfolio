@@ -6,9 +6,6 @@ Email addresses are encoded by doing bitwise XOR on each character integer value
 the process.
  */
 
-// must be equal to backend
-const MAGIC_NUMBER = 1337;
-
 jQuery(document).ready(function($) {
 
     // encoded email address is stored in the `data-obfuscated-email` property
@@ -28,7 +25,7 @@ function xorString(encodedEmail) {
     var decodedEmail = '';
 
     for (var i = 0; i < encodedEmail.length; i++) {
-        decodedEmail += String.fromCharCode(encodedEmail.charCodeAt(i) ^ MAGIC_NUMBER);
+        decodedEmail += String.fromCharCode(encodedEmail.charCodeAt(i) ^ App.config.obfuscationKey);
     }
 
     return decodedEmail;
