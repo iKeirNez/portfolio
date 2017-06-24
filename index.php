@@ -85,7 +85,7 @@
                         <div class="item">
                             <h3 class="title">Service Developer
                                 <span class="place"><a href="https://www.cubecraft.net">CubeCraft Games</a></span>
-                                <span class="year">(December 2016 - Present)</span>
+                                <span class="year">(December 2016 - June 2017)</span>
                             </h3>
                             <p>
                                 Newly hired by CubeCraft to develop various services for their large Minecraft
