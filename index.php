@@ -163,7 +163,7 @@
                     <div class="content">
                         <ul class="list-unstyled">
                             <li><i class="fa fa-fw fa-map-pin"></i><span class="sr-only">Location: </span>Dunfermline, UK</li>
-                            <li><i class="fa fa-fw fa-briefcase"></i><span class="sr-only">Company:</span><a href="https://www.cubecraft.net" target="_blank">CubeCraft Games</a></li>
+                            <li><i class="fa fa-fw fa-briefcase"></i><span class="sr-only">Company:</span><a href="http://www.airts.co.uk/" target="_blank">Airts</a></li>
                             <li><i class="fa fa-fw fa-key"></i><span class="sr-only">PGP: </span><a href="https://keybase.io/keir_nellyer" target="_blank">279B 64A7 971B 4FF4</a></li>
                         </ul>
                     </div>
