@@ -11,8 +11,7 @@
                 <#-- TODO: add more social buttons here -->
             </ul>
         </div>
-        <#-- TODO: Dynamically obfuscate email and inject -->
-        <a class="btn btn-cta-primary pull-right" target="_blank" data-obfuscate="a2VpckBuZWxseWVyLmNvLnVr">
+        <a class="btn btn-cta-primary pull-right" target="_blank" data-obfuscate="${xorString(profile.email)}">
             <i class="fa fa-paper-plane"></i> Contact Me
         </a>
     </div>

@@ -2,6 +2,7 @@ package com.keirnellyer.portfolio
 
 import com.keirnellyer.portfolio.repository.DummyProfileRepository
 import com.keirnellyer.portfolio.repository.ProfileRepository
+import com.keirnellyer.portfolio.template.XorStringMethod
 import spark.ModelAndView
 import spark.TemplateEngine
 import spark.kotlin.get
@@ -21,6 +22,7 @@ class Application(val templateEngine: TemplateEngine) {
 
     fun render(model: MutableMap<String, Any>, templatePath: String): String {
         model.put("profile", profileRepository.profile)
+        model.put("xorString", XorStringMethod())
         return templateEngine.render(ModelAndView(model, templatePath))
     }
 }
