@@ -37,7 +37,7 @@ class WebApplication(val templateEngine: TemplateEngine) {
         // obfuscate email so it isn't shown in plaintext (client-side JS will handle de-obfuscating)
         val obfuscatedEmail = xorString(model.email)
 
-        return ProfileView(model.firstName, model.lastName, birthDateOffset, model.jobTitle, model.location,
+        return ProfileView(model.firstName, model.lastName, model.age, model.jobTitle, model.location,
                 obfuscatedEmail)
     }
 

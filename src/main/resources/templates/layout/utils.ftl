@@ -21,14 +21,21 @@
     <#nested>
     <#include "footer.ftl">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"
-            integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <#include "app.ftl">
-    <script src="${fw.url('resources/js/age.js')}"></script>
     <script src="${fw.url('resources/js/obfuscate.js')}"></script>
 </body>
 </html>
 </#macro>
+
+<#-- May need moved server-side if we expand to other platforms -->
+<#function agePrefix age>
+    <#-- If number sounds like it starts with 'eight' -->
+    <#if age == 8 || age == 18 || (age >= 80 && age < 90)>
+        <#return 'an'>
+    <#else>
+        <#return 'a'>
+    </#if>
+</#function>
