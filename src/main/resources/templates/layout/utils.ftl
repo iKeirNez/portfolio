@@ -1,4 +1,4 @@
-<#macro standardLayout title="">
+<#macro mainLayout title="">
 <!DOCTYPE html>
 <html>
 <head lang="en">
