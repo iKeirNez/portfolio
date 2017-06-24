@@ -29,13 +29,3 @@
 </body>
 </html>
 </#macro>
-
-<#-- May need moved server-side if we expand to other platforms -->
-<#function agePrefix age>
-    <#-- If number sounds like it starts with 'eight' -->
-    <#if age == 8 || age == 18 || (age >= 80 && age < 90)>
-        <#return 'an'>
-    <#else>
-        <#return 'a'>
-    </#if>
-</#function>
