@@ -1,8 +1,7 @@
 <footer class="footer">
     <div class="container text-center">
         <div class="footer-content">
-            <!-- TODO -->
-            Copyright &copy; 2017 ${profile.fullName}
+            Copyright &copy; ${.now?string["yyyy"]} ${profile.fullName}
         </div>
     </div>
 </footer>
