@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
     // encoded email address is stored in the `data-obfuscated-email` property
     // email address is decoded when user hovers or clicks the button
     $('a[data-obfuscated-email]').on('mouseover.uncensor click.uncensor', function() {
-        var decoded = xorString($(this).data('obfuscate'), $(this));
+        var decoded = xorString($(this).data('obfuscated-email'), $(this));
 
         // set href to decoded email address
         $(this).attr('href', "mailto:" + decoded);
