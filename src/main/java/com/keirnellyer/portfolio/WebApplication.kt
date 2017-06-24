@@ -5,6 +5,7 @@ import com.keirnellyer.portfolio.repository.DummyProfileRepository
 import com.keirnellyer.portfolio.repository.ProfileRepository
 import com.keirnellyer.portfolio.view.ProfileView
 import com.keirnellyer.portfolio.template.SparkHelper
+import com.keirnellyer.portfolio.view.AppConfig
 import spark.ModelAndView
 import spark.Request
 import spark.TemplateEngine
