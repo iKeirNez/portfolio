@@ -1,6 +1,6 @@
 <header class="header">
     <div class="container">
-        <img class="profile-image img-circle img-responsive pull-left" src="/profile.png" alt="Keir Nellyer" />
+        <img class="profile-image img-circle img-responsive pull-left" src="/profile.png" alt="${profile.fullName}" />
         <div class="profile-content pull-left">
             <h1 class="full-name">${profile.fullName}</h1>
             <h2 class="job-title">${profile.jobTitle}</h2>
