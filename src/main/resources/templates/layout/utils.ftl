@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link id="theme-style" rel="stylesheet" href="/resources/css/main.css">
+    <link id="theme-style" rel="stylesheet" href="${fw.url('resources/css/main.css')}">
 </head>
 <body>
     <#include "header.ftl">
@@ -27,8 +27,8 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <#include "app.ftl">
-    <script src="/resources/js/age.js"></script>
-    <script src="/resources/js/obfuscate.js"></script>
+    <script src="${fw.url('resources/js/age.js')}"></script>
+    <script src="${fw.url('resources/js/obfuscate.js')}"></script>
 </body>
 </html>
 </#macro>

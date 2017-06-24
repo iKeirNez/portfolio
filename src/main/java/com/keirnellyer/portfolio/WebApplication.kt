@@ -4,7 +4,9 @@ import com.keirnellyer.portfolio.model.Profile
 import com.keirnellyer.portfolio.repository.DummyProfileRepository
 import com.keirnellyer.portfolio.repository.ProfileRepository
 import com.keirnellyer.portfolio.view.ProfileView
+import com.keirnellyer.portfolio.template.SparkHelper
 import spark.ModelAndView
+import spark.Request
 import spark.TemplateEngine
 import spark.kotlin.get
 import spark.kotlin.staticFiles
@@ -21,7 +23,7 @@ class WebApplication(val templateEngine: TemplateEngine) {
         get("/") {
             val model: MutableMap<String, Any> = HashMap()
             model.put("profile", view(profileRepository.profile))
-            render(model, "index.ftl")
+            render(request, model, "index.ftl")
         }
     }
 
@@ -48,9 +50,10 @@ class WebApplication(val templateEngine: TemplateEngine) {
                 .joinToString(separator = "")
     }
 
-    fun render(model: Map<String, Any>, templatePath: String): String {
+    fun render(request: Request, model: Map<String, Any>, templatePath: String): String {
         val mutableModel: MutableMap<String, Any> = HashMap(model)
         mutableModel.put("appConfig", appConfig)
+        mutableModel.put("fw", SparkHelper(request))
         return templateEngine.render(ModelAndView(mutableModel, templatePath))
     }
 }
