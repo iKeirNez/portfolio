@@ -1,14 +1,14 @@
 package com.keirnellyer.portfolio
 
+import com.keirnellyer.portfolio.repository.DummyProfileRepository
+import com.keirnellyer.portfolio.repository.ProfileRepository
 import spark.ModelAndView
 import spark.TemplateEngine
 import spark.kotlin.get
 import spark.kotlin.staticFiles
-import java.time.LocalDate
-import java.time.ZoneId
 
 class Application(val templateEngine: TemplateEngine) {
-    val profile: Profile = createProfile()
+    val profileRepository: ProfileRepository = DummyProfileRepository()
 
     init {
         staticFiles.location("/public")
@@ -20,12 +20,7 @@ class Application(val templateEngine: TemplateEngine) {
     }
 
     fun render(model: MutableMap<String, Any>, templatePath: String): String {
-        model.put("profile", profile)
+        model.put("profile", profileRepository.profile)
         return templateEngine.render(ModelAndView(model, templatePath))
-    }
-
-    fun createProfile(): Profile {
-        val birthDateTime = LocalDate.of(1999, 1, 12).atStartOfDay(ZoneId.of("Europe/London"))
-        return Profile("Keir", "Nellyer", birthDateTime, "Software Engineer", "Dunfermline, Scotland", "keir@nellyer.co.uk")
     }
 }
