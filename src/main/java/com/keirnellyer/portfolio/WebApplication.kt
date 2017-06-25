@@ -8,6 +8,7 @@ import com.keirnellyer.portfolio.view.AppConfig
 import freemarker.template.Configuration
 import no.api.freemarker.java8.Java8ObjectWrapper
 import spark.TemplateEngine
+import spark.debug.DebugScreen.*
 import spark.kotlin.after
 import spark.kotlin.staticFiles
 import spark.template.freemarker.FreeMarkerEngine
@@ -30,6 +31,7 @@ class WebApplication {
 
     init {
         staticFiles.location("/public")
+        enableDebugScreen()
 
         PortfolioController(appConfig, profileRepository).initializeRoutes()
 
