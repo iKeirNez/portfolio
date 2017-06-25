@@ -11,8 +11,6 @@ import spark.Request
 import spark.TemplateEngine
 import spark.kotlin.get
 import spark.kotlin.staticFiles
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 
 class WebApplication(val templateEngine: TemplateEngine) {
     var appConfig: AppConfig = AppConfig(1337)
@@ -29,12 +27,6 @@ class WebApplication(val templateEngine: TemplateEngine) {
     }
 
     fun view(model: Profile): ProfileView {
-        // we use UTC time so that server and client work in the same timezone
-        // format for future client-side parsing
-        val birthDateOffset = model.birthDate
-                .withZoneSameInstant(ZoneId.of("UTC"))
-                .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
-
         // obfuscate email so it isn't shown in plaintext (client-side JS will handle de-obfuscating)
         val obfuscatedEmail = xorString(model.email)
 
