@@ -23,7 +23,7 @@
                         <div class="item">
                             <h3 class="title">Service Developer
                                 <span class="place"><a href="https://www.cubecraft.net">CubeCraft Games</a></span>
-                                <span class="year">(December 2016 - Present)</span>
+                                <span class="year">(December 2016 - June 2017)</span>
                             </h3>
                             <p>
                                 Newly hired by CubeCraft to develop various services for their large Minecraft
@@ -101,7 +101,7 @@
                     <div class="content">
                         <ul class="list-unstyled">
                             <li><i class="fa fa-fw fa-map-pin"></i><span class="sr-only">Location: </span>${profile.location}</li>
-                            <li><i class="fa fa-fw fa-briefcase"></i><span class="sr-only">Company:</span><a href="https://www.cubecraft.net" target="_blank">CubeCraft Games</a></li>
+                            <li><i class="fa fa-fw fa-briefcase"></i><span class="sr-only">Company:</span><a href="http://www.airts.co.uk/" target="_blank">Airts</a></li>
                             <li><i class="fa fa-fw fa-key"></i><span class="sr-only">PGP: </span><a href="https://keybase.io/keir_nellyer" target="_blank">279B 64A7 971B 4FF4</a></li>
                         </ul>
                     </div>
