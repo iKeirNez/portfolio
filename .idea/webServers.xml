@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="83b5d58f-3a6c-4fff-b48f-6f263e1c7c9f" name="portfolio" url="http://keirnellyer.com">
+        <fileTransfer host="keirnellyer.com" port="22" privateKey="$USER_HOME$/.ssh/id_rsa" rootFolder="/var/www/html" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
