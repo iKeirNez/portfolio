@@ -83,12 +83,23 @@
                     <h2 class="heading">Work Experience</h2>
                     <div class="content">
                         <div class="item">
+                            <h3 class="title">Apprentice Software Developer
+                                <span class="place"><a href="http://www.airts.co.uk">Airts</a></span>
+                                <span class="year">(May 2017 - Present)</span>
+                            </h3>
+                            <p>
+                                Hired as an apprentice developer, working on improving and fixing bugs in Airts products
+                                such as <a href="http://www.airts.co.uk/braid/">Braid</a> and the
+                                <a href="http://www.airts.co.uk/solver-api/">Solver API</a>.
+                            </p>
+                        </div>
+                        <div class="item">
                             <h3 class="title">Service Developer
                                 <span class="place"><a href="https://www.cubecraft.net">CubeCraft Games</a></span>
                                 <span class="year">(December 2016 - June 2017)</span>
                             </h3>
                             <p>
-                                Newly hired by CubeCraft to develop various services for their large Minecraft
+                                Hired by CubeCraft to develop various backend services and develop their large Minecraft
                                 multiplayer server.
                             </p>
                         </div>
