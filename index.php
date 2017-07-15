@@ -152,6 +152,7 @@
                     <h2 class="heading">Education</h2>
                     <div class="content">
                         <div class="item">
+                            <!-- TODO QA -->
                             <h3 class="title">Software Development (HND)
                                 <span class="place">Fife College - Priory/St. Brycedale Campus</span>
                                 <span class="year">(August 2015 - June 2017)</span>
