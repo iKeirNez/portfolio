@@ -84,18 +84,18 @@
                     <div class="content">
                         <div class="item">
                             <h3 class="title">Apprentice Software Developer
-                                <span class="place"><a href="http://www.airts.co.uk">Airts</a></span>
+                                <span class="place"><a href="http://www.airts.co.uk" target="_blank">Airts</a></span>
                                 <span class="year">(May 2017 - Present)</span>
                             </h3>
                             <p>
                                 Hired as an apprentice developer, working on improving and fixing bugs in Airts products
-                                such as <a href="http://www.airts.co.uk/braid/">Braid</a> and the
-                                <a href="http://www.airts.co.uk/solver-api/">Solver API</a>.
+                                such as <a href="http://www.airts.co.uk/braid/" target="_blank">Braid</a> and the
+                                <a href="http://www.airts.co.uk/solver-api/" target="_blank">Solver API</a>.
                             </p>
                         </div>
                         <div class="item">
                             <h3 class="title">Service Developer
-                                <span class="place"><a href="https://www.cubecraft.net">CubeCraft Games</a></span>
+                                <span class="place"><a href="https://www.cubecraft.net" target="_blank">CubeCraft Games</a></span>
                                 <span class="year">(December 2016 - June 2017)</span>
                             </h3>
                             <p>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="item">
                             <h3 class="title">Software Engineer
-                                <span class="place"><a href="http://mineplex.com">Mineplex, LLC</a></span>
+                                <span class="place"><a href="http://mineplex.com" target="_blank">Mineplex, LLC</a></span>
                                 <span class="year">(October 2015 - November 2016)</span>
                             </h3>
                             <p>
@@ -119,7 +119,7 @@
                         </div>
                         <div class="item">
                             <h3 class="title">Lead Developer
-                                <span class="place"><a href="https://minecraftly.com">Minecraftly</a></span>
+                                <span class="place"><a href="https://minecraftly.com" target="_blank">Minecraftly</a></span>
                                 <span class="year">(October 2012 - April 2016)</span>
                             </h3>
                             <p>
@@ -139,7 +139,7 @@
                             <p>
                                 Developed server-side applications based on specification provided by clients which had
                                 been sourced by Puzl Inc. These projects mainly made use of Java, MySQL and the
-                                <a href="http://bukkit.org">Bukkit API</a>. This involved working directly with the
+                                <a href="http://bukkit.org" target="_blank">Bukkit API</a>. This involved working directly with the
                                 client and ensuring they were satisfied with the end product by implementing requested
                                 changes and additions in a timely manner.
                             </p>
@@ -154,7 +154,9 @@
                         <div class="item">
                             <!-- TODO QA -->
                             <h3 class="title">Software Development (HND)
-                                <span class="place">Fife College - Priory/St. Brycedale Campus</span>
+                                <span class="place">
+                                    <a href="http://www.fife.ac.uk/" target="_blank">Fife College</a>
+                                    - Priory/St. Brycedale Campus</span>
                                 <span class="year">(August 2015 - June 2017)</span>
                             </h3>
                             <p>
