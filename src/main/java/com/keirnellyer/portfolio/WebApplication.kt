@@ -1,8 +1,6 @@
 package com.keirnellyer.portfolio
 
 import com.keirnellyer.portfolio.controller.PortfolioController
-import com.keirnellyer.portfolio.repository.DummyProfileRepository
-import com.keirnellyer.portfolio.repository.ProfileRepository
 import com.keirnellyer.portfolio.util.Filters
 import com.keirnellyer.portfolio.view.AppConfig
 import freemarker.template.Configuration
@@ -27,13 +25,11 @@ class WebApplication {
         }
     }
 
-    val profileRepository: ProfileRepository = DummyProfileRepository()
-
     init {
         staticFiles.location("/public")
         enableDebugScreen()
 
-        PortfolioController(appConfig, profileRepository).initializeRoutes()
+        PortfolioController(appConfig).initializeRoutes()
 
         after(function = Filters.addGzipHeader)
     }

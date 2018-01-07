@@ -1,13 +1,11 @@
 package com.keirnellyer.portfolio.controller
 
-import com.keirnellyer.portfolio.repository.ProfileRepository
 import com.keirnellyer.portfolio.view.AppConfig
-import com.keirnellyer.portfolio.view.ProfileView
 import com.keirnellyer.portfolio.view.ViewUtil
 import spark.kotlin.get
 import spark.kotlin.RouteHandler
 
-class PortfolioController(val appConfig: AppConfig, val profileRepository: ProfileRepository) {
+class PortfolioController(val appConfig: AppConfig) {
     fun initializeRoutes() {
         get("/", function = servePortfolioPage)
     }
@@ -15,13 +13,13 @@ class PortfolioController(val appConfig: AppConfig, val profileRepository: Profi
     val servePortfolioPage: RouteHandler.() -> Any = {
         val model: MutableMap<String, Any> = HashMap()
 
-        val profile = profileRepository.profile
-        // obfuscate email so it isn't shown in plaintext (client-side JS will handle de-obfuscating)
-        val obfuscatedEmail = xorString(profile.email)
-        val profileView = ProfileView(profile.firstName, profile.lastName, profile.age, profile.jobTitle,
-                profile.location, obfuscatedEmail)
-
-        model.put("profile", profileView)
+//        val profile = profileRepository.profile
+//        // obfuscate email so it isn't shown in plaintext (client-side JS will handle de-obfuscating)
+//        val obfuscatedEmail = xorString(profile.email)
+//        val profileView = ProfileView(profile.firstName, profile.lastName, profile.age, profile.jobTitle,
+//                profile.location, obfuscatedEmail)
+//
+//        model.put("profile", profileView)
         ViewUtil.render(request, model, "index.ftl")
     }
 
