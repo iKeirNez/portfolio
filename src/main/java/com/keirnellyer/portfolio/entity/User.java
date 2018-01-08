@@ -1,4 +1,4 @@
-package com.keirnellyer.portfolio.database;
+package com.keirnellyer.portfolio.entity;
 
 public class User {
     private int id;

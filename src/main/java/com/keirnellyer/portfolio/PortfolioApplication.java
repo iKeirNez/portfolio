@@ -1,22 +1,22 @@
 package com.keirnellyer.portfolio;
 
-import com.keirnellyer.portfolio.database.User;
+import com.keirnellyer.portfolio.entity.User;
 import com.keirnellyer.portfolio.repository.IMainRepository;
 import com.keirnellyer.portfolio.repository.MainRepository;
 
 import java.util.List;
 
-public class Portfolio {
+public class PortfolioApplication {
     public static void main(String[] args) {
-        Portfolio portfolio = new Portfolio();
-        portfolio.test();
+        PortfolioApplication portfolioApplication = new PortfolioApplication();
+        portfolioApplication.test();
 
         new WebApplication();
     }
 
     private IMainRepository repo;
 
-    public Portfolio() {
+    public PortfolioApplication() {
         repo = new MainRepository(); // TODO inject this
     }
 

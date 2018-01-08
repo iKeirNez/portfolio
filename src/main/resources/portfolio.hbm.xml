@@ -4,14 +4,13 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.keirnellyer.portfolio.entity.User" table="users">
-        <meta attribute = "class-description">This class contains the user detail.</meta>
+    <class name="com.keirnellyer.portfolio.entity.Portfolio" table="portfolios">
+        <meta attribute = "class-description">This class contains the portfolio detail.</meta>
 
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
 
-        <property name="username" column="username" type="string"/>
-        <property name="password" column="password" type="string"/>
+        <property name="name" column="name" type="string"/>
     </class>
 </hibernate-mapping>

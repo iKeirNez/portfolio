@@ -1,6 +1,6 @@
 package com.keirnellyer.portfolio.repository;
 
-import com.keirnellyer.portfolio.database.User;
+import com.keirnellyer.portfolio.entity.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
