@@ -3,21 +3,27 @@ package com.keirnellyer.portfolio;
 import com.keirnellyer.portfolio.entity.User;
 import com.keirnellyer.portfolio.repository.IMainRepository;
 import com.keirnellyer.portfolio.repository.MainRepository;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
+@SpringBootApplication
 public class PortfolioApplication {
     public static void main(String[] args) {
-        PortfolioApplication portfolioApplication = new PortfolioApplication();
-        portfolioApplication.test();
+//        PortfolioApplication portfolioApplication = new PortfolioApplication();
+//        portfolioApplication.test();
 
-        new WebApplication();
+        SpringApplication.run(PortfolioApplication.class, args);
+
+        //new WebApplication();
     }
 
     private IMainRepository repo;
 
     public PortfolioApplication() {
-        repo = new MainRepository(); // TODO inject this
+        //repo = new MainRepository(); // TODO inject this
     }
 
     public void test() {

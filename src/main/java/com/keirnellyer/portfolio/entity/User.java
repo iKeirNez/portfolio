@@ -1,8 +1,20 @@
 package com.keirnellyer.portfolio.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotBlank
     private String username;
+
+    @NotBlank
     private String password;
 
     public User() {

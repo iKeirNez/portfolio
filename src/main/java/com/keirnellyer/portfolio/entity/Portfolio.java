@@ -1,7 +1,17 @@
 package com.keirnellyer.portfolio.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "portfolios")
 public class Portfolio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotBlank
     private String name;
 
     public Portfolio() {
