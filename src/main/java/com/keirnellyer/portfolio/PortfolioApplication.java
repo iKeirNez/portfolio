@@ -1,10 +1,9 @@
 package com.keirnellyer.portfolio;
 
 import com.keirnellyer.portfolio.entity.User;
-import com.keirnellyer.portfolio.repository.IMainRepository;
-import com.keirnellyer.portfolio.repository.MainRepository;
+import com.keirnellyer.portfolio.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
@@ -12,28 +11,25 @@ import java.util.List;
 @SpringBootApplication
 public class PortfolioApplication {
     public static void main(String[] args) {
-//        PortfolioApplication portfolioApplication = new PortfolioApplication();
-//        portfolioApplication.test();
-
         SpringApplication.run(PortfolioApplication.class, args);
-
-        //new WebApplication();
     }
 
-    private IMainRepository repo;
+    @Autowired
+    private IUserRepository userRepo;
 
-    public PortfolioApplication() {
-        //repo = new MainRepository(); // TODO inject this
+    public PortfolioApplication(IUserRepository userRepo) {
+        this.userRepo = userRepo;
+        test();
     }
 
     public void test() {
 //        User user1 = new User("ikeirnez", "asdf");
 //        User user2 = new User("testuser", "abc");
 //
-//        repo.addUser(user1);
-//        repo.addUser(user2);
+//        userRepo.save(user1);
+//        userRepo.save(user2);
 
-        List<User> users = repo.getUsers();
+        Iterable<User> users = userRepo.findAll();
         for (User user : users) {
             System.out.println("Id: " + user.getId());
             System.out.println("Username: " + user.getUsername());
