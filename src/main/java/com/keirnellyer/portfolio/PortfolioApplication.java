@@ -2,16 +2,12 @@ package com.keirnellyer.portfolio;
 
 import com.keirnellyer.portfolio.entity.Experience;
 import com.keirnellyer.portfolio.entity.Profile;
-import com.keirnellyer.portfolio.entity.ProfileLink;
+import com.keirnellyer.portfolio.entity.SocialLink;
 import com.keirnellyer.portfolio.entity.User;
 import com.keirnellyer.portfolio.repository.IProfileRepository;
 import com.keirnellyer.portfolio.repository.IUserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class PortfolioApplication {
@@ -31,7 +27,7 @@ public class PortfolioApplication {
     public void test() {
 //        User newUser = new User("newUser", "asdf");
 //        Profile profile = new Profile(newUser, true, "Keir Nellyer", "Software Engineer", "asdf");
-//        profile.addLink(new ProfileLink("GitHub", "fa-github", "http://github.com"));
+//        profile.addLink(new SocialLink("GitHub", "fa-github", "http://github.com"));
 //        profile.addExperience(new Experience("Airts", "Software Developer", Instant.now(), null, "ggg"));
 //
 //        userRepo.save(newUser);
@@ -54,7 +50,7 @@ public class PortfolioApplication {
             System.out.println("Headline: " + p.getHeadline());
             System.out.println("Biography: " + p.getBiography());
 
-            for (ProfileLink link : p.getLinks()) {
+            for (SocialLink link : p.getLinks()) {
                 System.out.println("[Profile Link] Id: " + link.getId());
                 System.out.println("PId: " + link.getProfile().getId());
                 System.out.println("[Profile Link] Name: " + link.getName());

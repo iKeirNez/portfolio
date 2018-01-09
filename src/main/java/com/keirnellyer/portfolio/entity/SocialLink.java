@@ -5,8 +5,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "profile_links")
-public class ProfileLink {
+@Table(name = "social_links")
+public class SocialLink {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -27,10 +27,10 @@ public class ProfileLink {
     @NotBlank
     private String url;
 
-    public ProfileLink() {
+    public SocialLink() {
     }
 
-    public ProfileLink(String name, String icon, String url) {
+    public SocialLink(String name, String icon, String url) {
         this.name = name;
         this.icon = icon;
         this.url = url;

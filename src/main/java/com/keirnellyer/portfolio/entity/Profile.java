@@ -3,9 +3,7 @@ package com.keirnellyer.portfolio.entity;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,8 +14,8 @@ public class Profile {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "ownerId", nullable = false)
-    private User owner;
+    @JoinColumn(name = "siteId", nullable = false)
+    private Site site;
 
     @Column(nullable = false)
     private boolean live;
@@ -32,8 +30,8 @@ public class Profile {
     @Column(nullable = false)
     private String biography;
 
-    @OneToMany(mappedBy = "profile", targetEntity = ProfileLink.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ProfileLink> links = new HashSet<>();
+    @OneToMany(mappedBy = "profile", targetEntity = SocialLink.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<SocialLink> links = new HashSet<>();
 
     @OneToMany(mappedBy = "profile", targetEntity = Experience.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Experience> experiences = new HashSet<>();
@@ -41,16 +39,16 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(User owner, boolean live, String name, String headline, String biography) {
-        this.owner = owner;
+    public Profile(Site site, boolean live, String name, String headline, String biography) {
+        this.site = site;
         this.live = live;
         this.name = name;
         this.headline = headline;
         this.biography = biography;
     }
 
-    public Profile(User owner, boolean live, String name, String headline, String biography, Set<ProfileLink> links, Set<Experience> experiences) {
-        this.owner = owner;
+    public Profile(Site site, boolean live, String name, String headline, String biography, Set<SocialLink> links, Set<Experience> experiences) {
+        this.site = site;
         this.live = live;
         this.name = name;
         this.headline = headline;
@@ -67,12 +65,12 @@ public class Profile {
         this.id = id;
     }
 
-    public User getOwner() {
-        return owner;
+    public Site getSite() {
+        return site;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setSite(Site site) {
+        this.site = site;
     }
 
     public boolean isLive() {
@@ -107,20 +105,20 @@ public class Profile {
         this.biography = biography;
     }
 
-    public Set<ProfileLink> getLinks() {
+    public Set<SocialLink> getLinks() {
         return links;
     }
 
-    public void setLinks(Set<ProfileLink> links) {
+    public void setLinks(Set<SocialLink> links) {
         this.links = links;
     }
 
-    public void addLink(ProfileLink link) {
+    public void addLink(SocialLink link) {
         link.setProfile(this);
         links.add(link);
     }
 
-    public void removeLink(ProfileLink link) {
+    public void removeLink(SocialLink link) {
         link.setProfile(null);
         links.remove(link);
     }
