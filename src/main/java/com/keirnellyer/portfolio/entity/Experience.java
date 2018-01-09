@@ -3,7 +3,7 @@ package com.keirnellyer.portfolio.entity;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "experiences")
@@ -11,10 +11,6 @@ public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "profile_id")
-    private Profile profile;
 
     @Column(nullable = false)
     @NotBlank
@@ -25,19 +21,20 @@ public class Experience {
     private String position;
 
     @Column(nullable = false)
-    private Instant from;
+    private LocalDate from;
 
     @Column
-    private Instant to;
+    private LocalDate to;
 
     @Column
+    @Lob
     @NotBlank
     private String description;
 
     public Experience() {
     }
 
-    public Experience(String organisation, String position, Instant from, Instant to, String description) {
+    public Experience(String organisation, String position, LocalDate from, LocalDate to, String description) {
         this.organisation = organisation;
         this.position = position;
         this.from = from;
@@ -51,14 +48,6 @@ public class Experience {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
     }
 
     public String getOrganisation() {
@@ -77,19 +66,19 @@ public class Experience {
         this.position = position;
     }
 
-    public Instant getFrom() {
+    public LocalDate getFrom() {
         return from;
     }
 
-    public void setFrom(Instant from) {
+    public void setFrom(LocalDate from) {
         this.from = from;
     }
 
-    public Instant getTo() {
+    public LocalDate getTo() {
         return to;
     }
 
-    public void setTo(Instant to) {
+    public void setTo(LocalDate to) {
         this.to = to;
     }
 

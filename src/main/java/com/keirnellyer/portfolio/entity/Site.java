@@ -3,6 +3,8 @@ package com.keirnellyer.portfolio.entity;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "sites")
@@ -15,13 +17,17 @@ public class Site {
     @JoinColumn(name = "owner_id")
     private User owner;
 
-    @OneToOne
-    @JoinColumn(name = "profile_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
     @Column(nullable = false)
     @NotBlank
     private String title;
+
+    @OneToMany(targetEntity = SocialLink.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "site_id")
+    private Set<SocialLink> links = new HashSet<>();
 
     public Site() {
     }
@@ -30,6 +36,13 @@ public class Site {
         this.owner = owner;
         this.profile = profile;
         this.title = title;
+    }
+
+    public Site(User owner, Profile profile, String title, Set<SocialLink> links) {
+        this.owner = owner;
+        this.profile = profile;
+        this.title = title;
+        this.links = links;
     }
 
     public int getId() {
@@ -62,5 +75,21 @@ public class Site {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Set<SocialLink> getLinks() {
+        return links;
+    }
+
+    public void setLinks(Set<SocialLink> links) {
+        this.links = links;
+    }
+
+    public void addLink(SocialLink link) {
+        links.add(link);
+    }
+
+    public void removeLink(SocialLink link) {
+        links.remove(link);
     }
 }

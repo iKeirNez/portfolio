@@ -11,10 +11,6 @@ public class SocialLink {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "profile_id")
-    private Profile profile;
-
     @Column(nullable = false)
     @NotBlank
     private String name;
@@ -42,14 +38,6 @@ public class SocialLink {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
     }
 
     public String getName() {

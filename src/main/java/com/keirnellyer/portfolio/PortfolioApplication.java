@@ -1,13 +1,14 @@
 package com.keirnellyer.portfolio;
 
-import com.keirnellyer.portfolio.entity.Experience;
-import com.keirnellyer.portfolio.entity.Profile;
-import com.keirnellyer.portfolio.entity.SocialLink;
-import com.keirnellyer.portfolio.entity.User;
+import com.keirnellyer.portfolio.entity.*;
 import com.keirnellyer.portfolio.repository.IProfileRepository;
+import com.keirnellyer.portfolio.repository.ISiteRepository;
 import com.keirnellyer.portfolio.repository.IUserRepository;
+import com.keirnellyer.portfolio.service.ISeedService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 
 @SpringBootApplication
 public class PortfolioApplication {
@@ -15,25 +16,27 @@ public class PortfolioApplication {
         SpringApplication.run(PortfolioApplication.class, args);
     }
 
-    private IUserRepository userRepo;
-    private IProfileRepository profileRepo;
+    private IUserRepository userRepository;
+    private ISiteRepository siteRepository;
+    private IProfileRepository profileRepository;
+    private ISeedService seedService;
 
-    public PortfolioApplication(IUserRepository userRepo, IProfileRepository profileRepo) {
-        this.userRepo = userRepo;
-        this.profileRepo = profileRepo;
-        test();
+    public PortfolioApplication(IUserRepository userRepository, ISiteRepository siteRepository, IProfileRepository profileRepository, ISeedService seedService) {
+        this.userRepository = userRepository;
+        this.siteRepository = siteRepository;
+        this.profileRepository = profileRepository;
+        this.seedService = seedService;
+        listEntities();
     }
 
-    public void test() {
-//        User newUser = new User("newUser", "asdf");
-//        Profile profile = new Profile(newUser, true, "Keir Nellyer", "Software Engineer", "asdf");
-//        profile.addLink(new SocialLink("GitHub", "fa-github", "http://github.com"));
-//        profile.addExperience(new Experience("Airts", "Software Developer", Instant.now(), null, "ggg"));
-//
-//        userRepo.save(newUser);
-//        profileRepo.save(profile);
+    @EventListener
+    public void seed(ContextRefreshedEvent e) {
+        seedService.seed();
+        listEntities();
+    }
 
-        Iterable<User> users = userRepo.findAll();
+    public void listEntities() {
+        Iterable<User> users = userRepository.findAll();
         for (User user : users) {
             System.out.println("Id: " + user.getId());
             System.out.println("Username: " + user.getUsername());
@@ -44,30 +47,35 @@ public class PortfolioApplication {
         System.out.println("PROFILES");
         System.out.println();
 
-        for (Profile p : profileRepo.findAll()) {
-            System.out.println("Id: " + p.getId());
-            System.out.println("Name: " + p.getName());
-            System.out.println("Headline: " + p.getHeadline());
-            System.out.println("Biography: " + p.getBiography());
+        for (Site s : siteRepository.findAll()) {
+            System.out.println("[Site] Id: " + s.getId());
+            System.out.println("[Site] Owner: " + s.getOwner().getUsername());
+            System.out.println("[Site] Title: " + s.getTitle());
 
-            for (SocialLink link : p.getLinks()) {
-                System.out.println("[Profile Link] Id: " + link.getId());
-                System.out.println("PId: " + link.getProfile().getId());
-                System.out.println("[Profile Link] Name: " + link.getName());
-                System.out.println("[Profile Link] Icon: " + link.getIcon());
-                System.out.println("[Profile Link] URL: " + link.getUrl());
+            for (Profile p : profileRepository.findAll()) {
+                System.out.println("[Profile] Id: " + p.getId());
+                System.out.println("[Profile] Name: " + p.getName());
+                System.out.println("[Profile] Headline: " + p.getHeadline());
+                System.out.println("[Profile] Biography: " + p.getBiography());
+
+                for (Experience experience : p.getExperiences()) {
+                    System.out.println("[Experience] Id: " + experience.getId());
+                    System.out.println("[Experience] Organisation: " + experience.getOrganisation());
+                    System.out.println("[Experience] Position: " + experience.getPosition());
+                    System.out.println("[Experience] From: " + experience.getFrom());
+                    System.out.println("[Experience] To: " + experience.getTo());
+                    System.out.println("[Experience] Description: " + experience.getDescription());
+                }
             }
 
-            for (Experience experience : p.getExperiences()) {
-                System.out.println("[Experience] Id: " + experience.getId());
-                System.out.println("[Experience] Organisation: " + experience.getOrganisation());
-                System.out.println("[Experience] Position: " + experience.getPosition());
-                System.out.println("[Experience] From: " + experience.getFrom());
-                System.out.println("[Experience] To: " + experience.getTo());
-                System.out.println("[Experience] Description: " + experience.getDescription());
+            for (SocialLink link : s.getLinks()) {
+                System.out.println("[Site Link] Id: " + link.getId());
+                System.out.println("[Site Link] Name: " + link.getName());
+                System.out.println("[Site Link] Icon: " + link.getIcon());
+                System.out.println("[Site Link] URL: " + link.getUrl());
             }
+
+            System.out.println("END OF SITE");
         }
-
-        System.out.println("THE END");
     }
 }

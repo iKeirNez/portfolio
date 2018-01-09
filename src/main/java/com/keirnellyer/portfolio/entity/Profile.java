@@ -13,10 +13,6 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne
-    @JoinColumn(name = "siteId", nullable = false)
-    private Site site;
-
     @Column(nullable = false)
     private boolean live;
 
@@ -28,32 +24,28 @@ public class Profile {
     private String headline;
 
     @Column(nullable = false)
+    @Lob
     private String biography;
 
-    @OneToMany(mappedBy = "profile", targetEntity = SocialLink.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<SocialLink> links = new HashSet<>();
-
-    @OneToMany(mappedBy = "profile", targetEntity = Experience.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Experience.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "profile_id")
     private Set<Experience> experiences = new HashSet<>();
 
     public Profile() {
     }
 
-    public Profile(Site site, boolean live, String name, String headline, String biography) {
-        this.site = site;
+    public Profile(boolean live, String name, String headline, String biography) {
         this.live = live;
         this.name = name;
         this.headline = headline;
         this.biography = biography;
     }
 
-    public Profile(Site site, boolean live, String name, String headline, String biography, Set<SocialLink> links, Set<Experience> experiences) {
-        this.site = site;
+    public Profile(boolean live, String name, String headline, String biography, Set<Experience> experiences) {
         this.live = live;
         this.name = name;
         this.headline = headline;
         this.biography = biography;
-        this.links = links;
         this.experiences = experiences;
     }
 
@@ -63,14 +55,6 @@ public class Profile {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Site getSite() {
-        return site;
-    }
-
-    public void setSite(Site site) {
-        this.site = site;
     }
 
     public boolean isLive() {
@@ -105,24 +89,6 @@ public class Profile {
         this.biography = biography;
     }
 
-    public Set<SocialLink> getLinks() {
-        return links;
-    }
-
-    public void setLinks(Set<SocialLink> links) {
-        this.links = links;
-    }
-
-    public void addLink(SocialLink link) {
-        link.setProfile(this);
-        links.add(link);
-    }
-
-    public void removeLink(SocialLink link) {
-        link.setProfile(null);
-        links.remove(link);
-    }
-
     public Set<Experience> getExperiences() {
         return experiences;
     }
@@ -132,12 +98,10 @@ public class Profile {
     }
 
     public void addExperience(Experience experience) {
-        experience.setProfile(this);
         experiences.add(experience);
     }
 
     public void removeExperience(Experience experience) {
-        experience.setProfile(null);
         experiences.remove(experience);
     }
 }
