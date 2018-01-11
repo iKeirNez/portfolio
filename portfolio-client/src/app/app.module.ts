@@ -9,13 +9,19 @@ import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { SiteService } from './site.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileService } from './profile.service';
+import { OccupationComponent } from './occupation/occupation.component';
+import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { LayoutSectionComponent } from './layout-section/layout-section.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteHeaderComponent,
-    SiteFooterComponent
+    SiteFooterComponent,
+    OccupationComponent,
+    WorkExperienceComponent,
+    LayoutSectionComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, NgbModule.forRoot()

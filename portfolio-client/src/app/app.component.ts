@@ -4,6 +4,7 @@ import { Site } from './site';
 import { Title } from '@angular/platform-browser';
 import { Profile } from './profile';
 import { ProfileService } from './profile.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +24,12 @@ export class AppComponent {
       this.site = site;
       this.titleService.setTitle(site.title + ' | Karo');
 
-      console.log(site);
-      this.profileService.getProfile(site.profile).subscribe(profile => this.profile = profile);
+      console.log('Site loaded', site);
+
+      this.profileService.getProfile(site.profileId).subscribe(profile => {
+        this.profile = profile;
+        console.log('Profile loaded', profile);
+      });
     });
-
-
   }
 }

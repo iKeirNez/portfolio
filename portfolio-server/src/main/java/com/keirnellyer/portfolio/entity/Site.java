@@ -22,6 +22,7 @@ public class Site {
     private User owner;
 
     // TODO make field to just be a foreign key id so that de-serialisation will work
+    @JsonProperty("profileId")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @OneToOne(cascade = CascadeType.ALL)

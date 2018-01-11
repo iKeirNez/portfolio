@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/sites")
 public class SiteController {
-    private ISiteRepository siteRepository; // TODO should be a service
+    private ISiteRepository siteRepository;
 
     public SiteController(ISiteRepository siteRepository) {
         this.siteRepository = siteRepository;

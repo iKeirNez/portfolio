@@ -10,79 +10,9 @@
           </div>
         </div>
       </section>
-      <section class="experience section">
-        <div class="section-inner">
-          <h2 class="heading">Work Experience</h2>
-          <div class="content">
-            <div class="item">
-              <h3 class="title">Apprentice Software Developer
-                <span class="place">
-                  <a href="http://www.airts.co.uk" target="_blank">Airts</a>
-                </span>
-                <span class="year">(May 2017 - Present)</span>
-              </h3>
-              <p>
-                Hired as an apprentice developer, working on improving and fixing bugs in Airts products such as
-                <a href="http://www.airts.co.uk/braid/"
-                  target="_blank">Braid</a> and the
-                <a href="http://www.airts.co.uk/solver-api/" target="_blank">Solver API</a>.
-              </p>
-            </div>
-            <div class="item">
-              <h3 class="title">Service Developer
-                <span class="place">
-                  <a href="https://www.cubecraft.net" target="_blank">CubeCraft Games</a>
-                </span>
-                <span class="year">(December 2016 - June 2017)</span>
-              </h3>
-              <p>
-                Hired by CubeCraft to develop various backend services and develop their large Minecraft multiplayer server.
-              </p>
-            </div>
-            <div class="item">
-              <h3 class="title">Software Engineer
-                <span class="place">
-                  <a href="http://mineplex.com" target="_blank">Mineplex, LLC</a>
-                </span>
-                <span class="year">(October 2015 - November 2016)</span>
-              </h3>
-              <p>
-                Worked on mostly backend server solutions for one of the largest Minecraft multiplayer networks, these solutions occasionally
-                had to be capable of communicating across multiple server instances (accomplished using Redis). I spent most
-                of my time there working on non-games/player lobby features. I also had to design and implement a backend
-                database structure and create PHP scripts to dynamically generate web pages to fetch, process and display
-                data from said database.
-              </p>
-            </div>
-            <div class="item">
-              <h3 class="title">Lead Developer
-                <span class="place">
-                  <a href="https://minecraftly.com" target="_blank">Minecraftly</a>
-                </span>
-                <span class="year">(October 2012 - April 2016)</span>
-              </h3>
-              <p>
-                Worked as lead developer of a highly ambitious project to allow massive amounts of players to host their own Minecraft worlds
-                and invite their friends to join them in their world. The backend servers were designed to be infinitely
-                scalable by using multiple Google Compute instances to distribute the load, these would dynamically scale
-                up or down depending on server traffic. This allowed the system to be effectively limitless.
-              </p>
-            </div>
-            <div class="item">
-              <h3 class="title">Software Developer
-                <span class="place">Puzl Inc.</span>
-                <span class="year">(August 2015 - November 2015)</span>
-              </h3>
-              <p>
-                Developed server-side applications based on specification provided by clients which had been sourced by Puzl Inc. These projects
-                mainly made use of Java, MySQL and the
-                <a href="http://bukkit.org" target="_blank">Bukkit API</a>. This involved working directly with the client and ensuring they were satisfied with the
-                end product by implementing requested changes and additions in a timely manner.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <app-layout-section>
+        <app-work-experience jobs="profile.experiences"></app-work-experience>
+      </app-layout-section>
       <section class="experience section">
         <div class="section-inner">
           <h2 class="heading">Education</h2>
