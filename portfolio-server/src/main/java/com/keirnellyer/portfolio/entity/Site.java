@@ -1,5 +1,9 @@
 package com.keirnellyer.portfolio.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -17,6 +21,9 @@ public class Site {
     @JoinColumn(name = "owner_id")
     private User owner;
 
+    // TODO make field to just be a foreign key id so that de-serialisation will work
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
