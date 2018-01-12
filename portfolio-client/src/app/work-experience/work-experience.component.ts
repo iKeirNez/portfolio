@@ -13,6 +13,7 @@ export class WorkExperienceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('jobs', this.jobs);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SiteService } from './site.service';
 import { Site } from './site';
 import { Title } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Rx';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Karo';
 
   site: Site;
@@ -22,13 +22,13 @@ export class AppComponent {
   ngOnInit() {
     this.siteService.getSite(1).subscribe(site => {
       this.site = site;
-      this.titleService.setTitle(site.title + ' | Karo');
+      console.log('site', this.site);
 
-      console.log('Site loaded', site);
+      this.titleService.setTitle(site.title + ' | Karo');
 
       this.profileService.getProfile(site.profileId).subscribe(profile => {
         this.profile = profile;
-        console.log('Profile loaded', profile);
+        console.log('profile', this.profile);
       });
     });
   }

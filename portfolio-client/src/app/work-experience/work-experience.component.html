@@ -1,8 +1,8 @@
 <div class="experience">
   <h2 class="heading">Work Experience</h2>
   <div class="content">
-    <div ng-repeat="job in jobs" class="item">
-      <app-occupation headline="{{ job.position }}" location="job.location" website="http://google.com" from="job.from" to="job.to" description="job.description"></app-occupation>
+    <div *ngFor="let job of jobs;" class="item">
+      <app-occupation [headline]="job.position" [organisation]="job.organisation" website="http://google.com" [from]="job.from" [to]="job.to" [description]="job.description"></app-occupation>
     </div>
   </div>
 </div>

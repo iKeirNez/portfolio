@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OccupationComponent implements OnInit {
 
   @Input() headline: string;
-  @Input() location: string;
+  @Input() organisation: string;
   @Input() website: string;
   @Input() from: Date;
   @Input() to: Date;

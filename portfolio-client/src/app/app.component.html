@@ -1,5 +1,5 @@
 <site-header></site-header>
-<div class="container sections-wrapper">
+<div *ngIf="site && profile" class="container sections-wrapper">
   <div class="row">
     <div class="primary col-md-8 col-sm-12 col-xs-12">
       <section class="about section">
@@ -11,7 +11,7 @@
         </div>
       </section>
       <app-layout-section>
-        <app-work-experience jobs="profile.experiences"></app-work-experience>
+        <app-work-experience [jobs]="profile.experiences"></app-work-experience>
       </app-layout-section>
       <section class="experience section">
         <div class="section-inner">
