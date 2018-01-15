@@ -5,6 +5,8 @@ import { Title } from '@angular/platform-browser';
 import { Profile } from './profile';
 import { ProfileService } from './profile.service';
 import { Observable } from 'rxjs/Rx';
+import { ProfileBasic, OccupationBasic } from './profile-basic';
+import { Job } from './job';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,8 @@ export class AppComponent implements OnInit {
 
   site: Site;
   profile: Profile;
+
+  basicProfile: ProfileBasic;
 
   constructor(private titleService: Title, private siteService: SiteService, private profileService: ProfileService) { }
 
@@ -29,6 +33,11 @@ export class AppComponent implements OnInit {
       this.profileService.getProfile(site.profileId).subscribe(profile => {
         this.profile = profile;
         console.log('profile', this.profile);
+
+        let currentJob = profile.jobs.find(j => j.to === null);
+        let basicOccupation: OccupationBasic = new OccupationBasic(currentJob.organisation, currentJob.website);
+        this.basicProfile = new ProfileBasic(profile.location, basicOccupation);
+        console.log('basic profile', this.basicProfile);
       });
     });
   }

@@ -39,7 +39,7 @@ public class SeedService implements ISeedService {
         TextProducer text = fairy.textProducer();
 
         String bio = String.format("%s%n%n%s", text.paragraph(4), text.paragraph(4));
-        Profile profile = new Profile(true, "Default Profile", "The default headline", bio);
+        Profile profile = new Profile(true, "Default Profile", "The default headline", "Scotland, United Kingdom", bio);
 
         jobs.forEach(profile::addJob);
         educations.forEach(profile::addEducation);

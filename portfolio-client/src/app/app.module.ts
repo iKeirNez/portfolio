@@ -12,6 +12,7 @@ import { ProfileService } from './profile.service';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { LayoutSectionComponent } from './layout-section/layout-section.component';
 import { EducationComponent } from './education/education.component';
+import { SidebarInfoComponent } from './sidebar-info/sidebar-info.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EducationComponent } from './education/education.component';
     SiteFooterComponent,
     WorkExperienceComponent,
     LayoutSectionComponent,
-    EducationComponent
+    EducationComponent,
+    SidebarInfoComponent
   ],
   imports: [
     BrowserModule,

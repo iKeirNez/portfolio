@@ -18,28 +18,7 @@
       </app-layout-section>
     </div>
     <div class="secondary col-md-4 col-sm-12 col-xs-12">
-      <aside class="info aside section">
-        <div class="section-inner">
-          <h2 class="heading sr-only">Basic Information</h2>
-          <div class="content">
-            <ul class="list-unstyled">
-              <li>
-                <i class="fa fa-fw fa-map-pin"></i>
-                <span class="sr-only">Location: </span>Dunfermline, UK</li>
-              <li>
-                <i class="fa fa-fw fa-briefcase"></i>
-                <span class="sr-only">Company:</span>
-                <a href="http://www.airts.co.uk/" target="_blank">Airts</a>
-              </li>
-              <li>
-                <i class="fa fa-fw fa-key"></i>
-                <span class="sr-only">PGP: </span>
-                <a href="https://keybase.io/keir_nellyer" target="_blank">279B 64A7 971B 4FF4</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </aside>
+      <app-sidebar-info [profile]="basicProfile"></app-sidebar-info>
     </div>
   </div>
 </div>

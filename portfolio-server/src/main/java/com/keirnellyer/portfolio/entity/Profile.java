@@ -23,6 +23,10 @@ public class Profile {
     @Column(nullable = false)
     private String headline;
 
+    @Column
+    @NotBlank
+    private String location;
+
     @Column(nullable = false)
     @Lob
     private String biography;
@@ -38,17 +42,19 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(boolean live, String name, String headline, String biography) {
+    public Profile(boolean live, String name, String headline, String location, String biography) {
         this.live = live;
         this.name = name;
         this.headline = headline;
+        this.location = location;
         this.biography = biography;
     }
 
-    public Profile(boolean live, String name, String headline, String biography, Set<Job> jobs, Set<Education> educations) {
+    public Profile(boolean live, String name, String headline, String location, String biography, Set<Job> jobs, Set<Education> educations) {
         this.live = live;
         this.name = name;
         this.headline = headline;
+        this.location = location;
         this.biography = biography;
         this.jobs = jobs;
         this.educations = educations;
@@ -84,6 +90,14 @@ public class Profile {
 
     public void setHeadline(String headline) {
         this.headline = headline;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getBiography() {
