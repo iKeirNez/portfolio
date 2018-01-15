@@ -1,9 +1,6 @@
 package com.keirnellyer.portfolio.service;
 
-import com.keirnellyer.portfolio.entity.Experience;
-import com.keirnellyer.portfolio.entity.Profile;
-import com.keirnellyer.portfolio.entity.Site;
-import com.keirnellyer.portfolio.entity.User;
+import com.keirnellyer.portfolio.entity.*;
 import com.keirnellyer.portfolio.repository.ISiteRepository;
 import com.keirnellyer.portfolio.repository.IUserRepository;
 import io.codearte.jfairy.Fairy;
@@ -38,34 +35,45 @@ public class SeedService implements ISeedService {
         return new Site(siteOwner, profile, "Default Site");
     }
 
-    private Profile createDefaultProfile(Iterable<Experience> experiences) {
+    private Profile createDefaultProfile(Iterable<Job> jobs, Iterable<Education> educations) {
         TextProducer text = fairy.textProducer();
 
         String bio = String.format("%s%n%n%s", text.paragraph(4), text.paragraph(4));
         Profile profile = new Profile(true, "Default Profile", "The default headline", bio);
 
-        for (Experience experience : experiences) {
-            profile.addExperience(experience);
-        }
+        jobs.forEach(profile::addJob);
+        educations.forEach(profile::addEducation);
 
         return profile;
     }
 
-    private List<Experience> createDefaultExperiences() {
-        List<Experience> experiences = new ArrayList<>();
+    private List<Job> createDefaultJobs() {
+        List<Job> jobs = new ArrayList<>();
         TextProducer text = fairy.textProducer();
 
         LocalDate fromDate1 = LocalDate.of(2015, 1, 7);
-        LocalDate toDate1 = LocalDate.of(2017, 5, 23);
+        LocalDate toDate1 = null; // currently working here
         String description1 = text.paragraph(4);
-        experiences.add(new Experience("GitHub", "Software Developer", fromDate1, toDate1, description1));
+        jobs.add(new Job("GitHub", "http://github.com", "Software Developer", fromDate1, toDate1, description1));
 
         LocalDate fromDate2 = LocalDate.of(2010, 1, 7);
         LocalDate toDate2 = LocalDate.of(2015, 4, 18);
         String description2 = text.paragraph(4);
-        experiences.add(new Experience("Microsoft", "Software Developer", fromDate2, toDate2, description2));
+        jobs.add(new Job("Microsoft", "http://microsoft.com", "Software Developer", fromDate2, toDate2, description2));
 
-        return experiences;
+        return jobs;
+    }
+
+    private List<Education> createDefaultEducations() {
+        List<Education> educations = new ArrayList<>();
+        TextProducer text = fairy.textProducer();
+
+        LocalDate fromDate1 = LocalDate.of(2005, 5, 13);
+        LocalDate toDate1 = LocalDate.of(2009, 7, 18);
+        String description1 = text.paragraph(4);
+        educations.add(new Education("MIT", "http://web.mit.edu/", "Software Design & Engineering", fromDate1, toDate1, description1));
+
+        return educations;
     }
 
     public User seedDefaultAdminUser() {
@@ -76,7 +84,7 @@ public class SeedService implements ISeedService {
     }
 
     public Site seedDefaultSite(User siteOwner) {
-        Profile profile = createDefaultProfile(createDefaultExperiences());
+        Profile profile = createDefaultProfile(createDefaultJobs(), createDefaultEducations());
         Site defaultSite = createDefaultSite(siteOwner, profile);
         siteRepository.save(defaultSite);
         LOGGER.info("Seeded default sites");

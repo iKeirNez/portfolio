@@ -9,9 +9,9 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { SiteService } from './site.service';
 import { ProfileService } from './profile.service';
-import { OccupationComponent } from './occupation/occupation.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { LayoutSectionComponent } from './layout-section/layout-section.component';
+import { EducationComponent } from './education/education.component';
 
 
 @NgModule({
@@ -19,9 +19,9 @@ import { LayoutSectionComponent } from './layout-section/layout-section.componen
     AppComponent,
     SiteHeaderComponent,
     SiteFooterComponent,
-    OccupationComponent,
     WorkExperienceComponent,
-    LayoutSectionComponent
+    LayoutSectionComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,

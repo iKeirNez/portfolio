@@ -1,0 +1,17 @@
+<div class="experience">
+  <h2 class="heading">Education</h2>
+  <div class="content">
+    <div *ngFor="let education of educations;" class="item">
+      <h3 class="title">{{ education.subject }}
+        <span class="place">
+          <a *ngIf="education.website" [attr.href]="education.website" target="_blank">{{ education.establishment }}</a>
+          <span *ngIf="!education.website">{{ education.establishment }}</span>
+        </span>
+        <span class="year">({{ education.from | date: 'MMMM yyyy' }} - {{ (education.to | date: 'MMMM yyyy') || 'Present' }})</span>
+      </h3>
+      <p>
+        {{ education.description }}
+      </p>
+    </div>
+  </div>
+</div>

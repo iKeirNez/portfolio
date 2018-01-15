@@ -6,19 +6,23 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "experiences")
-public class Experience {
+@Table(name = "education")
+public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)
     @NotBlank
-    private String organisation;
+    private String establishment;
+
+    @Column
+    @NotBlank
+    private String website;
 
     @Column(nullable = false)
     @NotBlank
-    private String position;
+    private String subject;
 
     @Column(nullable = false)
     private LocalDate from;
@@ -31,12 +35,13 @@ public class Experience {
     @NotBlank
     private String description;
 
-    public Experience() {
+    public Education() {
     }
 
-    public Experience(String organisation, String position, LocalDate from, LocalDate to, String description) {
-        this.organisation = organisation;
-        this.position = position;
+    public Education(String establishment, String website, String subject, LocalDate from, LocalDate to, String description) {
+        this.establishment = establishment;
+        this.website = website;
+        this.subject = subject;
         this.from = from;
         this.to = to;
         this.description = description;
@@ -50,20 +55,28 @@ public class Experience {
         this.id = id;
     }
 
-    public String getOrganisation() {
-        return organisation;
+    public String getEstablishment() {
+        return establishment;
     }
 
-    public void setOrganisation(String organisation) {
-        this.organisation = organisation;
+    public void setEstablishment(String establishment) {
+        this.establishment = establishment;
     }
 
-    public String getPosition() {
-        return position;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public LocalDate getFrom() {

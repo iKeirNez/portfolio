@@ -2,7 +2,16 @@
   <h2 class="heading">Work Experience</h2>
   <div class="content">
     <div *ngFor="let job of jobs;" class="item">
-      <app-occupation [headline]="job.position" [organisation]="job.organisation" website="http://google.com" [from]="job.from" [to]="job.to" [description]="job.description"></app-occupation>
+      <h3 class="title">{{ job.position }}
+        <span class="place">
+          <a *ngIf="job.website" [attr.href]="job.website" target="_blank">{{ job.organisation }}</a>
+          <span *ngIf="!job.website">{{ job.organisation }}</span>
+        </span>
+        <span class="year">({{ job.from | date: 'MMMM yyyy' }} - {{ (job.to | date: 'MMMM yyyy') || 'Present' }})</span>
+      </h3>
+      <p>
+        {{ job.description }}
+      </p>
     </div>
   </div>
 </div>

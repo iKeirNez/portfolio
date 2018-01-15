@@ -27,9 +27,13 @@ public class Profile {
     @Lob
     private String biography;
 
-    @OneToMany(targetEntity = Experience.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Job.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "profile_id")
-    private Set<Experience> experiences = new HashSet<>();
+    private Set<Job> jobs = new HashSet<>();
+
+    @OneToMany(targetEntity = Education.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "profile_id")
+    private Set<Education> educations = new HashSet<>();
 
     public Profile() {
     }
@@ -41,12 +45,13 @@ public class Profile {
         this.biography = biography;
     }
 
-    public Profile(boolean live, String name, String headline, String biography, Set<Experience> experiences) {
+    public Profile(boolean live, String name, String headline, String biography, Set<Job> jobs, Set<Education> educations) {
         this.live = live;
         this.name = name;
         this.headline = headline;
         this.biography = biography;
-        this.experiences = experiences;
+        this.jobs = jobs;
+        this.educations = educations;
     }
 
     public int getId() {
@@ -89,19 +94,35 @@ public class Profile {
         this.biography = biography;
     }
 
-    public Set<Experience> getExperiences() {
-        return experiences;
+    public Set<Job> getJobs() {
+        return jobs;
     }
 
-    public void setExperiences(Set<Experience> experiences) {
-        this.experiences = experiences;
+    public void setJobs(Set<Job> jobs) {
+        this.jobs = jobs;
     }
 
-    public void addExperience(Experience experience) {
-        experiences.add(experience);
+    public void addJob(Job job) {
+        jobs.add(job);
     }
 
-    public void removeExperience(Experience experience) {
-        experiences.remove(experience);
+    public void removeJob(Job job) {
+        jobs.remove(job);
+    }
+
+    public Set<Education> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(Set<Education> educations) {
+        this.educations = educations;
+    }
+
+    public void addEducation(Education education) {
+        educations.add(education);
+    }
+
+    public void removeEducation(Education education) {
+        educations.remove(education);
     }
 }

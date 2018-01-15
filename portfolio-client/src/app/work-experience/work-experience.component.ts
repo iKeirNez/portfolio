@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Experience } from '../experience';
+import { Job } from '../job';
 
 @Component({
   selector: 'app-work-experience',
@@ -8,7 +8,7 @@ import { Experience } from '../experience';
 })
 export class WorkExperienceComponent implements OnInit {
 
-  @Input() jobs: Experience[]
+  @Input() jobs: Job[]
 
   constructor() { }
 

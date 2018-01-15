@@ -58,13 +58,24 @@ public class PortfolioApplication {
                 System.out.println("[Profile] Headline: " + p.getHeadline());
                 System.out.println("[Profile] Biography: " + p.getBiography());
 
-                for (Experience experience : p.getExperiences()) {
-                    System.out.println("[Experience] Id: " + experience.getId());
-                    System.out.println("[Experience] Organisation: " + experience.getOrganisation());
-                    System.out.println("[Experience] Position: " + experience.getPosition());
-                    System.out.println("[Experience] From: " + experience.getFrom());
-                    System.out.println("[Experience] To: " + experience.getTo());
-                    System.out.println("[Experience] Description: " + experience.getDescription());
+                for (Job job : p.getJobs()) {
+                    System.out.println("[Job] Id: " + job.getId());
+                    System.out.println("[Job] Organisation: " + job.getOrganisation());
+                    System.out.println("[Job] Website: " + job.getWebsite());
+                    System.out.println("[Job] Position: " + job.getPosition());
+                    System.out.println("[Job] From: " + job.getFrom());
+                    System.out.println("[Job] To: " + job.getTo());
+                    System.out.println("[Job] Description: " + job.getDescription());
+                }
+
+                for (Education education : p.getEducations()) {
+                    System.out.println("[Education] Id: " + education.getId());
+                    System.out.println("[Education] Establishment: " + education.getEstablishment());
+                    System.out.println("[Education] Website: " + education.getWebsite());
+                    System.out.println("[Education] Subject: " + education.getSubject());
+                    System.out.println("[Education] From: " + education.getFrom());
+                    System.out.println("[Education] To: " + education.getTo());
+                    System.out.println("[Education] Description: " + education.getDescription());
                 }
             }
 
