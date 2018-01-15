@@ -14,9 +14,6 @@ public class Profile {
     private int id;
 
     @Column(nullable = false)
-    private boolean live;
-
-    @Column(nullable = false)
     @NotBlank
     private String name;
 
@@ -42,16 +39,14 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(boolean live, String name, String headline, String location, String biography) {
-        this.live = live;
+    public Profile(String name, String headline, String location, String biography) {
         this.name = name;
         this.headline = headline;
         this.location = location;
         this.biography = biography;
     }
 
-    public Profile(boolean live, String name, String headline, String location, String biography, Set<Job> jobs, Set<Education> educations) {
-        this.live = live;
+    public Profile(String name, String headline, String location, String biography, Set<Job> jobs, Set<Education> educations) {
         this.name = name;
         this.headline = headline;
         this.location = location;
@@ -66,14 +61,6 @@ public class Profile {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public boolean isLive() {
-        return live;
-    }
-
-    public void setLive(boolean live) {
-        this.live = live;
     }
 
     public String getName() {

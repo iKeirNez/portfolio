@@ -32,14 +32,14 @@ public class SeedService implements ISeedService {
     }
 
     private Site createDefaultSite(User siteOwner, Profile profile) {
-        return new Site(siteOwner, profile, "Default Site");
+        return new Site(true, siteOwner, profile, "Default Site");
     }
 
     private Profile createDefaultProfile(Iterable<Job> jobs, Iterable<Education> educations) {
         TextProducer text = fairy.textProducer();
 
         String bio = String.format("%s%n%n%s", text.paragraph(4), text.paragraph(4));
-        Profile profile = new Profile(true, "Default Profile", "The default headline", "Scotland, United Kingdom", bio);
+        Profile profile = new Profile("Default Profile", "The default headline", "Scotland, United Kingdom", bio);
 
         jobs.forEach(profile::addJob);
         educations.forEach(profile::addEducation);

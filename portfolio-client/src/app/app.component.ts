@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   title = 'Karo';
 
   site: Site;
-  profile: Profile;
 
   basicProfile: ProfileBasic;
 
@@ -30,15 +29,10 @@ export class AppComponent implements OnInit {
 
       this.titleService.setTitle(site.title + ' | Karo');
 
-      this.profileService.getProfile(site.profileId).subscribe(profile => {
-        this.profile = profile;
-        console.log('profile', this.profile);
-
-        let currentJob = profile.jobs.find(j => j.to === null);
-        let basicOccupation: OccupationBasic = new OccupationBasic(currentJob.organisation, currentJob.website);
-        this.basicProfile = new ProfileBasic(profile.location, basicOccupation);
-        console.log('basic profile', this.basicProfile);
-      });
+      let currentJob = site.profile.jobs.find(j => j.to === null);
+      let basicOccupation: OccupationBasic = new OccupationBasic(currentJob.organisation, currentJob.website);
+      this.basicProfile = new ProfileBasic(site.profile.location, basicOccupation);
+      console.log('basic profile', this.basicProfile);
     });
   }
 }

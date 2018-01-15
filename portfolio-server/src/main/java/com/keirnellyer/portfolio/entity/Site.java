@@ -1,9 +1,5 @@
 package com.keirnellyer.portfolio.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -17,14 +13,13 @@ public class Site {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(nullable = false)
+    private boolean live;
+
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
 
-    // TODO make field to just be a foreign key id so that de-serialisation will work
-    @JsonProperty("profileId")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
@@ -40,13 +35,15 @@ public class Site {
     public Site() {
     }
 
-    public Site(User owner, Profile profile, String title) {
+    public Site(boolean live, User owner, Profile profile, String title) {
+        this.live = live;
         this.owner = owner;
         this.profile = profile;
         this.title = title;
     }
 
-    public Site(User owner, Profile profile, String title, Set<SocialLink> links) {
+    public Site(boolean live, User owner, Profile profile, String title, Set<SocialLink> links) {
+        this.live = live;
         this.owner = owner;
         this.profile = profile;
         this.title = title;
@@ -59,6 +56,14 @@ public class Site {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isLive() {
+        return live;
+    }
+
+    public void setLive(boolean live) {
+        this.live = live;
     }
 
     public User getOwner() {
