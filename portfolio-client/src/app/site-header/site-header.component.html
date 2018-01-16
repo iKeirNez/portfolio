@@ -7,20 +7,10 @@
                     <h1 class="full-name">{{ site.profile.name }}</h1>
                     <h2 class="job-title">{{ site.profile.headline }}</h2>
                     <ul class="social list-inline">
-                        <li class="list-inline-item">
-                            <a href="https://github.com/iKeirNez" target="_blank">
-                                <i class="fa fa-github-alt"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://uk.linkedin.com/in/ikeirnez" target="_blank">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://twitter.com/iKeirNez" target="_blank">
-                                <i class="fa fa-twitter"></i>
-                            </a>
+                        <li *ngFor="let link of site.links;" class="list-inline-item">
+                          <a [href]="link.url" target="_blank">
+                            <i class="fa" [ngClass]="link.icon"></i>
+                          </a>
                         </li>
                     </ul>
                 </div>

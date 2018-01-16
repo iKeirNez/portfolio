@@ -11,7 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class SeedService implements ISeedService {
@@ -32,7 +34,13 @@ public class SeedService implements ISeedService {
     }
 
     private Site createDefaultSite(User siteOwner, Profile profile) {
-        return new Site(true, siteOwner, profile, "Default Site");
+        return new Site(true, siteOwner, profile, "Default Site", createDefaultSocialLinks());
+    }
+
+    private Set<SocialLink> createDefaultSocialLinks() {
+        Set<SocialLink> links = new HashSet<>();
+        links.add(new SocialLink("GitHub", "fa-github-alt", "https://github.com/iKeirNez"));
+        return links;
     }
 
     private Profile createDefaultProfile(Iterable<Job> jobs, Iterable<Education> educations) {
