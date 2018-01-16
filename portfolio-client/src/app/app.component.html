@@ -1,25 +1,27 @@
-<site-header></site-header>
-<div *ngIf="site" class="container sections-wrapper">
-  <div class="row">
-    <div class="primary col-md-8 col-sm-12 col-xs-12">
-      <section class="about section">
-        <div class="section-inner">
-          <h2 class="heading">About Me</h2>
-          <div class="content">
-            {{ site.profile.biography }}
+<div *ngIf="site">
+  <site-header [site]="site"></site-header>
+  <div class="container sections-wrapper">
+    <div class="row">
+      <div class="primary col-md-8 col-sm-12 col-xs-12">
+        <section class="about section">
+          <div class="section-inner">
+            <h2 class="heading">About Me</h2>
+            <div class="content">
+              {{ site.profile.biography }}
+            </div>
           </div>
-        </div>
-      </section>
-      <app-layout-section>
-        <app-work-experience [jobs]="site.profile.jobs"></app-work-experience>
-      </app-layout-section>
-      <app-layout-section>
-        <app-education [educations]="site.profile.educations"></app-education>
-      </app-layout-section>
-    </div>
-    <div class="secondary col-md-4 col-sm-12 col-xs-12">
-      <app-sidebar-info [profile]="site.profile"></app-sidebar-info>
+        </section>
+        <app-layout-section>
+          <app-work-experience [jobs]="site.profile.jobs"></app-work-experience>
+        </app-layout-section>
+        <app-layout-section>
+          <app-education [educations]="site.profile.educations"></app-education>
+        </app-layout-section>
+      </div>
+      <div class="secondary col-md-4 col-sm-12 col-xs-12">
+        <app-sidebar-info [profile]="site.profile"></app-sidebar-info>
+      </div>
     </div>
   </div>
+  <site-footer></site-footer>
 </div>
-<site-footer></site-footer>

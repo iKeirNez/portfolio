@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Site } from '../site';
 
 @Component({
   selector: 'site-header',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site-header.component.css']
 })
 export class SiteHeaderComponent implements OnInit {
+
+  @Input() site: Site;
 
   constructor() { }
 
