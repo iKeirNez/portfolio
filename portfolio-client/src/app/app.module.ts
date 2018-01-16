@@ -13,6 +13,7 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
 import { LayoutSectionComponent } from './layout-section/layout-section.component';
 import { EducationComponent } from './education/education.component';
 import { SidebarInfoComponent } from './sidebar-info/sidebar-info.component';
+import { JobService } from './job.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { SidebarInfoComponent } from './sidebar-info/sidebar-info.component';
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [SiteService, ProfileService],
+  providers: [SiteService, ProfileService, JobService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

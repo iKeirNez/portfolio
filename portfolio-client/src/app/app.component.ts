@@ -5,7 +5,6 @@ import { Title } from '@angular/platform-browser';
 import { Profile } from './profile';
 import { ProfileService } from './profile.service';
 import { Observable } from 'rxjs/Rx';
-import { ProfileBasic, OccupationBasic } from './profile-basic';
 import { Job } from './job';
 
 @Component({
@@ -18,8 +17,6 @@ export class AppComponent implements OnInit {
 
   site: Site;
 
-  basicProfile: ProfileBasic;
-
   constructor(private titleService: Title, private siteService: SiteService, private profileService: ProfileService) { }
 
   ngOnInit() {
@@ -28,11 +25,6 @@ export class AppComponent implements OnInit {
       console.log('site', this.site);
 
       this.titleService.setTitle(site.title + ' | Karo');
-
-      let currentJob = site.profile.jobs.find(j => j.to === null);
-      let basicOccupation: OccupationBasic = new OccupationBasic(currentJob.organisation, currentJob.website);
-      this.basicProfile = new ProfileBasic(site.profile.location, basicOccupation);
-      console.log('basic profile', this.basicProfile);
     });
   }
 }
