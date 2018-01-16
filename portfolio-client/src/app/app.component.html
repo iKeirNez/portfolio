@@ -1,5 +1,5 @@
 <div *ngIf="site">
-  <site-header [site]="site"></site-header>
+  <site-header [title]="site.profile.name" [headline]="site.profile.headline" photoUrl="http://localhost:8080/profile.png" [links]="site.links"></site-header>
   <div class="container sections-wrapper">
     <div class="row">
       <div class="primary col-md-8 col-sm-12 col-xs-12">
