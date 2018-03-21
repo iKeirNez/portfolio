@@ -11,12 +11,16 @@
             </div>
           </div>
         </section>
-        <app-layout-section>
-          <app-work-experience [jobs]="site.profile.jobs"></app-work-experience>
-        </app-layout-section>
-        <app-layout-section>
-          <app-education [educations]="site.profile.educations"></app-education>
-        </app-layout-section>
+        <section class="section">
+          <div class="section-inner">
+            <app-work-experience [jobs]="site.profile.jobs"></app-work-experience>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-inner">
+            <app-education [educations]="site.profile.educations"></app-education>
+          </div>
+        </section>
       </div>
       <div class="secondary col-md-4 col-sm-12 col-xs-12">
         <app-sidebar-info [profile]="site.profile"></app-sidebar-info>
